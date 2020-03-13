@@ -7,10 +7,10 @@ $vf-masthead__subtitle-text--color: set-color(vf-color--grey);
 // Debug information from component's `package.json`:
 // ---
 /*!
- * Component: #{map-get($componentInfo, 'name')}
- * Version: #{map-get($componentInfo, 'version')}
- * Location: #{map-get($componentInfo, 'location')}
- */
+* Component: #{map-get($componentInfo, 'name')}
+* Version: #{map-get($componentInfo, 'version')}
+* Location: #{map-get($componentInfo, 'location')}
+*/
 
 .vf-masthead {
   // --vf-masthead__color--foreround-default: var(--vf-color--grey-darkest);
@@ -45,7 +45,7 @@ $vf-masthead__subtitle-text--color: set-color(vf-color--grey);
 }
 
 .vf-masthead__heading {
-  @include set-type(text-heading--1, $custom-margin-bottom: 8px);
+  @include set-type(text-heading--1, $custom-margin-bottom: 0);
 
   color: $vf-masthead__title-text--color;
   display: flex;
@@ -174,4 +174,28 @@ $vf-masthead__subtitle-text--color: set-color(vf-color--grey);
     color: set-ui-color(vf-ui-color--white);
     text-shadow: 1px 1px 0px set-ui-color(vf-ui-color--black);
   }
+}
+
+
+.vf-masthead__title--has-badge {
+  display: grid;
+  grid-template-rows: auto auto;
+
+  .vf-badge {
+    align-self: center;
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    justify-self: flex-end;
+    margin-top: 18px; // this is so we don't need to make a complex grid.
+  }
+
+  .vf-masthead__heading {
+    grid-column: 1 / span 1;
+    grid-row: 1 / -1;
+  }
+
+  .vf-masthead__heading__link {
+    padding-right: 72px; // this is needed so there is space for the badge
+  }
+
 }
